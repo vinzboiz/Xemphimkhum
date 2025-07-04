@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Có một câu hỏi nhỏ, cần một người trả lời!</title>
+    <link rel="stylesheet" href="/Doyouloveme/index.css" />
+  </head>
+
+  <body cz-shortcut-listen="true">
+    <div class="container">
+      <img id="mainImage" src="/Doyouloveme/heart.png" alt="Trái tim" />
+      <h1 id="question">Có thể thích bạn nhỏ không?</h1>
+      <div class="buttons">
+        <button id="yes">Có</button>
+        <button id="no">Không</button>
+      </div>
+    </div>
+
+    <script>
+      const yesButton = document.getElementById("yes");
+      const noButton = document.getElementById("no");
+      const questionText = document.getElementById("question");
+      const mainImage = document.getElementById("mainImage");
+
+      let clickCount = 0;
+
+      // Danh sách câu trả lời nút Không
+      const noTexts = [
+        "Bạn nghiêm túc chứ…",
+        "Nghĩ lại đi mà?",
+        "Không được chọn cái này!",
+        "Mình sẽ buồn lắm đó…",
+        "Không được đâu :(",
+        "Bạn ác quá 😢",
+        "Thật lòng không đó hả?",
+        "Đừng màaa!",
+        "Làm ơn đừng từ chối...",
+        "Thôi được rồi... 😭",
+      ];
+
+      noButton.addEventListener("click", function () {
+        clickCount++;
+
+        // Tăng kích thước nút Có
+        let yesSize = 1 + clickCount * 1.2;
+        yesButton.style.transform = `scale(${yesSize})`;
+
+        // Dịch chuyển nút Không sang phải
+        let noOffset = clickCount * 50;
+        noButton.style.transform = `translateX(${noOffset}px)`;
+
+        // Đẩy ảnh và câu hỏi lên trên
+        let moveUp = clickCount * 25;
+        mainImage.style.transform = `translateY(-${moveUp}px)`;
+        questionText.style.transform = `translateY(-${moveUp}px)`;
+
+        // Thay đổi nội dung nút Không nếu còn trong danh sách
+        if (clickCount <= noTexts.length) {
+          noButton.innerText = noTexts[clickCount - 1];
+        }
+
+        // Thay đổi ảnh theo số lần nhấn
+        if (clickCount === 1) mainImage.src = "/Doyouloveme/heart.png";
+        if (clickCount === 2) mainImage.src = "/Doyouloveme/heart.png";
+        if (clickCount === 3) mainImage.src = "/Doyouloveme/heart.png";
+        if (clickCount === 4) mainImage.src = "/Doyouloveme/heart.png";
+      });
+
+      yesButton.addEventListener("click", function () {
+        document.body.innerHTML = `
+          <div class="yes-screen">
+            <h1 class="yes-text"></h1>
+            <img src="/Doyouloveme/hug.png" alt="Ôm" class="yes-image">
+          </div>
+        `;
+
+        document.querySelector(".yes-text").innerText =
+          "Tôi biết sẽ như vậy mà ( >᎑<)♡︎ᐝ";
+
+        document.body.style.overflow = "hidden";
+      });
+    </script>
+  </body>
+</html>
