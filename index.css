@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  border-radius: 20px;
+
+  padding: 40px;
+  text-align: center;
+
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+#mainImage {
+  width: 150px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+#question {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #d81b60;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-direction: column;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s ease;
+}
+
+#yes {
+  background-color: #f06292;
+  color: white;
+}
+
+#no {
+  background-color: rgba(0, 255, 42, 0.664);
+  color: #fff;
+}
+
+#yes:hover {
+  background-color: #ec407a;
+  transform: scale(1.05);
+}
+
+#no:hover {
+  background-color: rgba(0, 255, 42, 0.664);
+  transform: scale(1.05);
+}
+
+.yes-screen {
+  text-align: center;
+  padding: 40px;
+}
+
+.yes-text {
+  font-size: 28px;
+  color: #d81b60;
+  margin-bottom: 30px;
+}
+
+.yes-image {
+  width: 200px;
+}

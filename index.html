@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Có một câu hỏi nhỏ, cần một người trả lời!</title>
-    <link rel="stylesheet" href="/Doyouloveme/index.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
 
   <body cz-shortcut-listen="true">
     <div class="container">
-      <img id="mainImage" src="/Doyouloveme/heart.png" alt="Trái tim" />
-      <h1 id="question">Có thể thích bạn nhỏ không?</h1>
+      <img id="mainImage" src="heart.png" alt="Trái tim" />
+      <h1 id="question">Vy ơi, cậu có muốn đi xem phim với tớ khônggg</h1>
       <div class="buttons">
         <button id="yes">Có</button>
         <button id="no">Không</button>
@@ -46,12 +46,12 @@
         let yesSize = 1 + clickCount * 1.2;
         yesButton.style.transform = `scale(${yesSize})`;
 
-        // Dịch chuyển nút Không sang phải
-        let noOffset = clickCount * 50;
-        noButton.style.transform = `translateX(${noOffset}px)`;
+        // Dịch chuyển nút Không xuống dưới
+        let noOffset = clickCount * 30; // khoảng cách dịch xuống
+        noButton.style.transform = `translateY(${noOffset}px)`;
 
         // Đẩy ảnh và câu hỏi lên trên
-        let moveUp = clickCount * 25;
+        let moveUp = clickCount * 30;
         mainImage.style.transform = `translateY(-${moveUp}px)`;
         questionText.style.transform = `translateY(-${moveUp}px)`;
 
@@ -61,17 +61,17 @@
         }
 
         // Thay đổi ảnh theo số lần nhấn
-        if (clickCount === 1) mainImage.src = "/Doyouloveme/heart.png";
-        if (clickCount === 2) mainImage.src = "/Doyouloveme/heart.png";
-        if (clickCount === 3) mainImage.src = "/Doyouloveme/heart.png";
-        if (clickCount === 4) mainImage.src = "/Doyouloveme/heart.png";
+        if (clickCount === 1) mainImage.src = "cry.png";
+        if (clickCount === 2) mainImage.src = "cry.png";
+        if (clickCount === 3) mainImage.src = "cry.png";
+        if (clickCount === 4) mainImage.src = "cry.png";
       });
 
       yesButton.addEventListener("click", function () {
         document.body.innerHTML = `
           <div class="yes-screen">
             <h1 class="yes-text"></h1>
-            <img src="/Doyouloveme/hug.png" alt="Ôm" class="yes-image">
+            <img src="hug.png" alt="Ôm" class="yes-image">
           </div>
         `;
 
